@@ -1,0 +1,7 @@
+C:\Users\Ethan\Documents\Visual Studio 2013\Projects\Wardrobe2.0\Wardrobe.Infrastructure\bin\Debug\Wardrobe.Infrastructure.dll
+C:\Users\Ethan\Documents\Visual Studio 2013\Projects\Wardrobe2.0\Wardrobe.Infrastructure\bin\Debug\Wardrobe.Infrastructure.pdb
+C:\Users\Ethan\Documents\Visual Studio 2013\Projects\Wardrobe2.0\Wardrobe.Infrastructure\bin\Debug\Wardrobe.Services.dll
+C:\Users\Ethan\Documents\Visual Studio 2013\Projects\Wardrobe2.0\Wardrobe.Infrastructure\bin\Debug\Wardrobe.Services.pdb
+C:\Users\Ethan\Documents\Visual Studio 2013\Projects\Wardrobe2.0\Wardrobe.Infrastructure\obj\Debug\Wardrobe.Infrastructure.csprojResolveAssemblyReference.cache
+C:\Users\Ethan\Documents\Visual Studio 2013\Projects\Wardrobe2.0\Wardrobe.Infrastructure\obj\Debug\Wardrobe.Infrastructure.dll
+C:\Users\Ethan\Documents\Visual Studio 2013\Projects\Wardrobe2.0\Wardrobe.Infrastructure\obj\Debug\Wardrobe.Infrastructure.pdb
