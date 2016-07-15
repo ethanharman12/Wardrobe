@@ -9,6 +9,7 @@ using Wardrobe.Core.Interfaces.Services;
 
 namespace Wardrobe.API.Controllers
 {
+    //[Authorize]
     public class ClosetController : ApiController
     {
         private readonly IClosetService _closetService;
