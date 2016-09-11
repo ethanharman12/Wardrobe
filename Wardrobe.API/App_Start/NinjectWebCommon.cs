@@ -16,6 +16,7 @@ namespace Wardrobe.API.App_Start
     using Wardrobe.Infrastructure.Repositories;
     using Wardrobe.Core.Interfaces.Repositories;
     using Ninject.Web.WebApi;
+    using System.Reflection;
 
     public static class NinjectWebCommon 
     {
@@ -52,7 +53,7 @@ namespace Wardrobe.API.App_Start
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
                 RegisterServices(kernel);
-
+                
                 GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
                 return kernel;
             }
