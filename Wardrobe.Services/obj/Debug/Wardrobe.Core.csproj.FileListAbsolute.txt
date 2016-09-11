@@ -1,4 +1,0 @@
-C:\Users\Ethan\Documents\Visual Studio 2013\Projects\Wardrobe2.0\Wardrobe.Services\bin\Debug\Wardrobe.Services.dll
-C:\Users\Ethan\Documents\Visual Studio 2013\Projects\Wardrobe2.0\Wardrobe.Services\bin\Debug\Wardrobe.Services.pdb
-C:\Users\Ethan\Documents\Visual Studio 2013\Projects\Wardrobe2.0\Wardrobe.Services\obj\Debug\Wardrobe.Services.dll
-C:\Users\Ethan\Documents\Visual Studio 2013\Projects\Wardrobe2.0\Wardrobe.Services\obj\Debug\Wardrobe.Services.pdb

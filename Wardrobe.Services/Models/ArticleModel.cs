@@ -17,5 +17,7 @@ namespace Wardrobe.Core.Models
         public bool IsClean { get; set; }
         public IEnumerable<DateTime> Wearings { get; set; }
         public IEnumerable<DateTime> Washings { get; set; }
+
+        public string UserId { get; set; }
     }
 }

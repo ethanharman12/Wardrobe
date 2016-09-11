@@ -28,7 +28,8 @@ namespace Wardrobe.Infrastructure.Repositories
                     IsClean = true,
                     Tags = new List<string>() { "Blue", "Small", "Button-Up", "Formal"},
                     Washings = new List<DateTime>() { DateTime.Today.AddDays(-1) },
-                    Wearings = new List<DateTime>() { DateTime.Today }
+                    Wearings = new List<DateTime>() { DateTime.Today },
+                    UserId = "7081805b-79b8-42e6-8be6-af8dc664756c"
                 },
                 new ArticleModel()
                 {
@@ -39,7 +40,20 @@ namespace Wardrobe.Infrastructure.Repositories
                     IsClean = true,
                     Tags = new List<string>() { "Black", "32x31", "Formal"},
                     Washings = new List<DateTime>() { DateTime.Today.AddDays(-3) },
-                    Wearings = new List<DateTime>() { DateTime.Today, DateTime.Today.AddDays(-1) }
+                    Wearings = new List<DateTime>() { DateTime.Today, DateTime.Today.AddDays(-1) },
+                    UserId = "7081805b-79b8-42e6-8be6-af8dc664756c"
+                },
+                new ArticleModel()
+                {
+                    BrandId = 1,
+                    BrandName = "Express",
+                    Id = 5,
+                    Type = ArticleTypeEnum.Pants,
+                    IsClean = true,
+                    Tags = new List<string>() { "Black", "32x31", "Formal"},
+                    Washings = new List<DateTime>() { DateTime.Today.AddDays(-3) },
+                    Wearings = new List<DateTime>() { DateTime.Today, DateTime.Today.AddDays(-1) },
+                    UserId = "someoneelse"
                 },
                 new ArticleModel()
                 {
@@ -50,20 +64,21 @@ namespace Wardrobe.Infrastructure.Repositories
                     IsClean = false,
                     Tags = new List<string>() { "Blue", "Black", "Small", "Button-Up", "Formal"},
                     Washings = new List<DateTime>() { DateTime.Today.AddDays(-7) },
-                    Wearings = new List<DateTime>() { DateTime.Today.AddDays(-1), DateTime.Today.AddDays(-4) }
+                    Wearings = new List<DateTime>() { DateTime.Today.AddDays(-1), DateTime.Today.AddDays(-4) },
+                    UserId = "7081805b-79b8-42e6-8be6-af8dc664756c"
                 }
             };
         }
 
-        public ArticleModel GetArticle(int articleId)
+        public ArticleModel GetArticle(int articleId, string userId)
         {
-            return articles.FirstOrDefault(article => article.Id == articleId);
+            return articles.FirstOrDefault(article => article.Id == articleId && article.UserId == userId);
         }
 
         //ToDo: include active bool?
-        public IEnumerable<ArticleModel> GetArticles()
+        public IEnumerable<ArticleModel> GetArticles(string userId)
         {
-            return articles;
+            return articles.Where(article => article.UserId == userId).ToList();
         }
     }
 }

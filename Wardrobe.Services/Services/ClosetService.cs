@@ -18,14 +18,14 @@ namespace Wardrobe.Core.Services
             _closetRepository = closetRepository;
         }
 
-        public ArticleModel GetArticle(int articleId)
+        public ArticleModel GetArticle(int articleId, string userId)
         {
-            return _closetRepository.GetArticle(articleId);
+            return _closetRepository.GetArticle(articleId, userId);
         }
 
-        public IEnumerable<ArticleModel> GetArticles()
+        public IEnumerable<ArticleModel> GetArticles(string userId)
         {
-            return _closetRepository.GetArticles();
+            return _closetRepository.GetArticles(userId);
         }
     }
 }

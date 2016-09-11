@@ -9,8 +9,8 @@ namespace Wardrobe.Core.Interfaces.Repositories
 {
     public interface IClosetRepository
     {
-        ArticleModel GetArticle(int articleId);
+        ArticleModel GetArticle(int articleId, string userId);
 
-        IEnumerable<ArticleModel> GetArticles();
+        IEnumerable<ArticleModel> GetArticles(string userId);
     }
 }

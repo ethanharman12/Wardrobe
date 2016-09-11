@@ -9,8 +9,8 @@ namespace Wardrobe.Core.Interfaces.Services
 {
     public interface IClosetService
     {
-        ArticleModel GetArticle(int articleId);
+        ArticleModel GetArticle(int articleId, string userId);
 
-        IEnumerable<ArticleModel> GetArticles();
+        IEnumerable<ArticleModel> GetArticles(string userId);
     }
 }
