@@ -1,15 +1,19 @@
 ﻿using Microsoft.AspNet.Identity;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using Wardrobe.API.MappingServices;
+using Wardrobe.API.Requests;
 using Wardrobe.API.ViewModels;
 using Wardrobe.Core.Interfaces.Services;
+using Wardrobe.Core.Models;
 
 namespace Wardrobe.API.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class ClosetController : ApiController
     {
         private readonly IClosetService _closetService;
@@ -17,6 +21,26 @@ namespace Wardrobe.API.Controllers
         public ClosetController(IClosetService closetService)
         {
             _closetService = closetService;
+        }
+
+        [HttpPost]
+        public HttpResponseMessage CreateArticle(CreateArticleRequest request)
+        {
+            //if invalid return Request.CreateResponse("BAD");
+
+            var article = new ArticleModel()
+            {
+                BrandId = request.BrandId,
+                Description = request.Description,
+                PrimaryColor = request.PrimaryColor,
+                PurchaseDate = request.PurchaseDate,
+                Size = request.Size,
+                Type = request.ArticleType,
+                UserId = User.Identity.GetUserId()
+            };
+
+            _closetService.CreateArticle(article);
+            return Request.CreateResponse(HttpStatusCode.OK, ClosetMapper.MapArticle(article));
         }
 
         [HttpGet]

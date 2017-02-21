@@ -17,6 +17,7 @@ namespace Wardrobe.API.App_Start
     using Wardrobe.Core.Interfaces.Repositories;
     using Ninject.Web.WebApi;
     using System.Reflection;
+    using Wardrobe.Infrastructure;
 
     public static class NinjectWebCommon 
     {
@@ -72,6 +73,7 @@ namespace Wardrobe.API.App_Start
         {
             kernel.Bind<IClosetService>().To<ClosetService>();
             kernel.Bind<IClosetRepository>().To<ClosetRepository>();
+            kernel.Bind<WardrobeContext>().ToSelf();
         }        
     }
 }

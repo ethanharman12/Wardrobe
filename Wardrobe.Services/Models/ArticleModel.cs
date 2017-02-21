@@ -15,6 +15,12 @@ namespace Wardrobe.Core.Models
         public int BrandId { get; set; }
         public string BrandName { get; set; }
         public bool IsClean { get; set; }
+        public string Size { get; set; }
+        public string PrimaryColor { get; set; }
+        public string Description { get; set; }
+
+        public DateTime PurchaseDate { get; set; }
+
         public IEnumerable<DateTime> Wearings { get; set; }
         public IEnumerable<DateTime> Washings { get; set; }
 

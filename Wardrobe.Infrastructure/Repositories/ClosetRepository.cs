@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Wardrobe.Core.Interfaces.Repositories;
 using Wardrobe.Core.Models;
+using Wardrobe.Infrastructure.Entities;
 using Wardrobe.Services.Enums;
 
 namespace Wardrobe.Infrastructure.Repositories
@@ -12,11 +13,12 @@ namespace Wardrobe.Infrastructure.Repositories
     public class ClosetRepository : IClosetRepository
     {
         IEnumerable<ArticleModel> articles;
+        private readonly WardrobeContext _context;
 
-        public ClosetRepository()
+        public ClosetRepository(WardrobeContext context)
         {
             //populate "DB" tables
-
+            _context = context;
             articles = new List<ArticleModel>()
             {
                 new ArticleModel()
@@ -69,16 +71,60 @@ namespace Wardrobe.Infrastructure.Repositories
                 }
             };
         }
+        
+        public ArticleModel CreateArticle(ArticleModel article)
+        {
+            var articleEntity = new Article
+            {
+                ArticleTypeId = (int)article.Type,
+                BrandId = article.BrandId,
+                Description = article.Description,
+                PrimaryColor = article.PrimaryColor,
+                PurchaseDate = article.PurchaseDate,
+                Size = article.Size,
+                UserId = article.UserId                
+            };
 
+            _context.Articles.Add(articleEntity);
+            _context.SaveChanges();
+
+            return MapArticle(articleEntity);
+        }
+        
         public ArticleModel GetArticle(int articleId, string userId)
         {
-            return articles.FirstOrDefault(article => article.Id == articleId && article.UserId == userId);
+            return MapArticle(_context.Articles.FirstOrDefault(article => article.Id == articleId && article.UserId == userId));
+            //return articles.FirstOrDefault(article => article.Id == articleId && article.UserId == userId);
         }
 
         //ToDo: include active bool?
         public IEnumerable<ArticleModel> GetArticles(string userId)
         {
-            return articles.Where(article => article.UserId == userId).ToList();
+            return _context.Articles.Where(article => article.UserId == userId).Select(MapArticle);
+            //return articles.Where(article => article.UserId == userId).ToList();
+        }
+
+
+        private ArticleModel MapArticle(Article article)
+        {
+            if (article == null) return null;
+
+            return new ArticleModel
+            {
+                BrandId = article.BrandId,
+                BrandName = article.Brand.Name,
+                Description = article.Description,
+                Id = article.Id,
+                IsClean = article.Washings.Any(),
+                PrimaryColor = article.PrimaryColor,
+                PurchaseDate = article.PurchaseDate,
+                Size = article.Size,
+                Tags = article.Tags.Select(tag => tag.TagType.Name),
+                Type = (ArticleTypeEnum)article.ArticleTypeId,
+                UserId = article.UserId,
+                Washings = article.Washings.Select(washing => washing.EventDate),
+                Wearings = article.Wearings.Select(wearing => wearing.EventDate)
+            };
         }
     }
 }
