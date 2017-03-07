@@ -7,10 +7,11 @@
     <ProjectGuid>{65D01250-B09A-47C7-94A5-688CB6E6BB66}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Wardrobe.Services</RootNamespace>
-    <AssemblyName>Wardrobe.Services</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>Wardrobe.Core</RootNamespace>
+    <AssemblyName>Wardrobe.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,9 +43,11 @@
     <Compile Include="Enums\ArticleTypeEnum.cs" />
     <Compile Include="Interfaces\Repositories\IClosetRepository.cs" />
     <Compile Include="Interfaces\Services\IClosetService.cs" />
+    <Compile Include="Interfaces\Services\IEventService.cs" />
     <Compile Include="Models\ArticleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ClosetService.cs" />
+    <Compile Include="Services\EventService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

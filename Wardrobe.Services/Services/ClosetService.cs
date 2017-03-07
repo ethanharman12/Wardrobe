@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Wardrobe.Core.Interfaces.Repositories;
 using Wardrobe.Core.Interfaces.Services;
 using Wardrobe.Core.Models;
-using Wardrobe.Services.Enums;
 
 namespace Wardrobe.Core.Services
 {
@@ -29,7 +24,7 @@ namespace Wardrobe.Core.Services
             return _closetRepository.GetArticle(articleId, userId);
         }
 
-        public IEnumerable<ArticleModel> GetArticles(string userId)
+        public List<ArticleModel> GetArticles(string userId)
         {
             return _closetRepository.GetArticles(userId);
         }

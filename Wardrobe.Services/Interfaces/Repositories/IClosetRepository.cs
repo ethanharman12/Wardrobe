@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Wardrobe.Core.Models;
-using Wardrobe.Services.Enums;
 
 namespace Wardrobe.Core.Interfaces.Repositories
 {
@@ -14,6 +10,10 @@ namespace Wardrobe.Core.Interfaces.Repositories
 
         ArticleModel GetArticle(int articleId, string userId);
 
-        IEnumerable<ArticleModel> GetArticles(string userId);
+        List<ArticleModel> GetArticles(string userId);
+
+        List<ArticleModel> GetWornArticles(DateTime date, string userId);
+
+        void Wear(int articleId, DateTime date);
     }
 }

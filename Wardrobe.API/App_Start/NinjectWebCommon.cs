@@ -71,6 +71,7 @@ namespace Wardrobe.API.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<IEventService>().To<EventService>();
             kernel.Bind<IClosetService>().To<ClosetService>();
             kernel.Bind<IClosetRepository>().To<ClosetRepository>();
             kernel.Bind<WardrobeContext>().ToSelf();

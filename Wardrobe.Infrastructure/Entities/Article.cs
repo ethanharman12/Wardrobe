@@ -18,9 +18,9 @@ namespace Wardrobe.Infrastructure.Entities
         public virtual AspNetUser User { get; set; }
         public virtual Brand Brand { get; set; }
 
-        public virtual IEnumerable<WearEvent> Wearings { get; set; }
-        public virtual IEnumerable<WashEvent> Washings { get; set; }
-        public virtual IEnumerable<Tag> Tags { get; set; }
+        public virtual ICollection<WearEvent> Wearings { get; set; }
+        public virtual ICollection<WashEvent> Washings { get; set; }
+        public virtual ICollection<Tag> Tags { get; set; }
 
         public Article()
         {

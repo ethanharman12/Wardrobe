@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Wardrobe.Services.Enums;
+using Wardrobe.Core.Enums;
 
 namespace Wardrobe.API.Requests
 {

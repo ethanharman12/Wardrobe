@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Wardrobe.Core.Models;
-using Wardrobe.Services.Enums;
+using Wardrobe.Core.Enums;
 
 namespace Wardrobe.Core.Interfaces.Services
 {
@@ -14,6 +14,6 @@ namespace Wardrobe.Core.Interfaces.Services
 
         ArticleModel GetArticle(int articleId, string userId);
 
-        IEnumerable<ArticleModel> GetArticles(string userId);
+        List<ArticleModel> GetArticles(string userId);
     }
 }

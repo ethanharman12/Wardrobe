@@ -1,4 +1,4 @@
-﻿namespace Wardrobe.Services.Enums
+﻿namespace Wardrobe.Core.Enums
 {
     public enum ArticleTypeEnum
     {
