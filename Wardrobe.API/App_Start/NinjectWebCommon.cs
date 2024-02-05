@@ -10,21 +10,14 @@ namespace Wardrobe.API.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-    using System.Web.Http;
-    using Wardrobe.Core.Interfaces.Services;
-    using Wardrobe.Core.Services;
-    using Wardrobe.Infrastructure.Repositories;
-    using Wardrobe.Core.Interfaces.Repositories;
-    using Ninject.Web.WebApi;
-    using System.Reflection;
-    using Wardrobe.Infrastructure;
+    using Ninject.Web.Common.WebHost;
 
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
         /// <summary>
-        /// Starts the application
+        /// Starts the application.
         /// </summary>
         public static void Start() 
         {
@@ -32,7 +25,7 @@ namespace Wardrobe.API.App_Start
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
         }
-        
+
         /// <summary>
         /// Stops the application.
         /// </summary>
@@ -40,7 +33,7 @@ namespace Wardrobe.API.App_Start
         {
             bootstrapper.ShutDown();
         }
-        
+
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
@@ -52,10 +45,7 @@ namespace Wardrobe.API.App_Start
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
-
                 RegisterServices(kernel);
-                
-                GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
                 return kernel;
             }
             catch
@@ -71,10 +61,6 @@ namespace Wardrobe.API.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IEventService>().To<EventService>();
-            kernel.Bind<IClosetService>().To<ClosetService>();
-            kernel.Bind<IClosetRepository>().To<ClosetRepository>();
-            kernel.Bind<WardrobeContext>().ToSelf();
-        }        
+        }
     }
 }
